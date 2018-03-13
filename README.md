@@ -12,3 +12,15 @@ Zero.
 Upload the pir.py to your Raspberry Pi.
 
 # Step 2
+
+Connect the PIR to the Raspberry Pi:
+
+We are using the 5v, Ground and Signal plugged to 2, 6 and 11.
+[[https://github.com/diegoeche/PIRSensorExample/blob/master/img/pins.jpeg]]
+
+
+
+# Credits
+
+Most of this tutorial was created using the really nice tutorial from here:
+https://maker.pro/education/bluetooth-basics-how-to-control-an-led-using-a-smartphone-and-arduino-1
