@@ -24,6 +24,20 @@ Ground and 5v.
 
 ![Pins](/pins.jpeg?raw=true "Pins")
 
+# Step 3 (Test)
+
+Ssh into your raspberry pi.
+
+`python pir.py`
+
+Should output the following when motion is detected.
+
+```
+GPIO setup done
+publishing message...
+{"status":"success"}
+```
+
 # Credits
 
 Most of this tutorial was created using the really nice tutorial from here:
