@@ -19,7 +19,7 @@ def login():
 def publish(value):
     print("publishing message...")
     url = 'http://localhost:9000/api/v1/messages/' + SERIAL_NUMBER
-    payload = json.dumps({'msgs': [{'message': value}]})
+    payload = json.dumps({'msgs': []})
     headers = {'Content-Type': 'application/json'}
     response = requests.post(url, data=payload, headers=headers)
     print(response.text)
@@ -39,8 +39,8 @@ def run():
   while True:
     if GPIO.input(PIN_NUMBER):
       while GPIO.input(PIN_NUMBER):
-        publish("HIGH")
-      publish("LOW")
+        pass
+      publish("Change")
     pause()
 
 try:
