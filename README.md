@@ -13,14 +13,16 @@ Upload the pir.py to your Raspberry Pi.
 
 # Step 2
 
-Connect the PIR to the Raspberry Pi:
+## Connect the PIR to the Raspberry Pi
 
-We are using the 5v, Ground and Signal plugged to 2, 6 and 11.
+The PIR sensor has 3 pins. Signal, Ground and Vcc as shown in the picture.
+
+![PIR](/pir.jpeg?raw=true "PIR")
+
+We'll be pluging those to the 11th, 6th and 2nd pin which correspond to GPIO 17,
+Ground and 5v.
 
 ![Pins](/pins.jpeg?raw=true "Pins")
-
-
-
 
 # Credits
 
