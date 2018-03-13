@@ -7,7 +7,7 @@ import json
 EMAIL=""
 PASSWORD=""
 SERIAL_NUMBER=""
-PIN_NUMBER=23
+PIN_NUMBER=11
 
 def login():
     url = 'http://localhost:9000/api/v1/login'
@@ -16,10 +16,10 @@ def login():
     response = requests.post(url, data=payload, headers=headers)
     return response.text == "success"
 
-def publish():
+def publish(value):
     print("publishing message...")
     url = 'http://localhost:9000/api/v1/messages/' + SERIAL_NUMBER
-    payload = json.dumps({'msgs': []})
+    payload = json.dumps({'msgs': [{'message': value}]})
     headers = {'Content-Type': 'application/json'}
     response = requests.post(url, data=payload, headers=headers)
     print(response.text)
@@ -27,15 +27,10 @@ def publish():
 def pause():
   time.sleep(0.1)
 
-def send_alert():
-  publish()
-
-
-
 def setup():
   if login():
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(PIN_NUMBER, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(PIN_NUMBER, GPIO.IN) # Read output from PIR motion sensor
     print("GPIO setup done")
   else:
     raise "error in login"
@@ -44,8 +39,8 @@ def run():
   while True:
     if GPIO.input(PIN_NUMBER):
       while GPIO.input(PIN_NUMBER):
-        pass
-      send_alert()
+        publish("HIGH")
+      publish("LOW")
     pause()
 
 try:
