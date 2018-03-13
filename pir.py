@@ -19,7 +19,7 @@ def login():
 def publish(value):
     print("publishing message...")
     url = 'http://localhost:9000/api/v1/messages/' + SERIAL_NUMBER
-    payload = json.dumps({'msgs': []})
+    payload = json.dumps({'msgs': [{"topic": "human_readable", 'msg': value}]})
     headers = {'Content-Type': 'application/json'}
     response = requests.post(url, data=payload, headers=headers)
     print(response.text)
