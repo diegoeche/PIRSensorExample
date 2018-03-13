@@ -16,7 +16,7 @@ Upload the pir.py to your Raspberry Pi.
 Connect the PIR to the Raspberry Pi:
 
 We are using the 5v, Ground and Signal plugged to 2, 6 and 11.
-[[https://github.com/diegoeche/PIRSensorExample/blob/master/img/pins.jpeg]]
+[[https://github.com/diegoeche/PIRSensorExample/blob/master/pins.jpeg]]
 
 
 
