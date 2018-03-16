@@ -9,7 +9,41 @@ Zero.
 
 # Step 1
 
-Upload the pir.py to your Raspberry Pi.
+* Upload and configure the pir.py to your Raspberry Pi.
+
+* Modify the pir.py and set the following variables:
+
+```
+EMAIL=""
+PASSWORD=""
+SERIAL_NUMBER=""
+```
+
+The `SERIAL_NUMBER` can be obtained by registering a new device through the
+`geeny-hub` service running in the Rpi.
+
+
+1. Log in to the `geeny-hub`.
+
+```
+curl -H "Content-Type: application/json" -X POST \
+  -d '{"email":"<your-user>","password":"<your-password>"}' \
+  'http://localhost:9000/api/v1/login'
+```
+
+2. Register the thing the instance will use.
+
+```
+curl -X POST \
+    -H 'Content-Type: application/json' \
+    -H 'Accept: application/json' \
+    -d '{
+        "name": "<name-of-your-thing>",
+        "serial_number": "<your-serial-number>",
+        "thing_type": "877827cc-0c78-4e55-80fe-2941479c681a"
+        }' \
+    'http://localhost:9000/api/v1/things' > thing.info
+```
 
 # Step 2
 
